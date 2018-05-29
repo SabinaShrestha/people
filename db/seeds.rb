@@ -5,3 +5,18 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# require 'faker'
+# include 'faker'
+
+50.times do
+  gen = ['Male', 'Female']
+  Person.create(
+    name: Faker::Name.unique.name,
+    age: Faker::Number.between(18,50),
+    hair_color: Faker::Color.color_name,
+    eye_color: Faker::Color.color_name,
+    gender: gen.sample,
+    alive: Faker::Boolean.boolean
+  )
+end
