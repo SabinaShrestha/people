@@ -10,13 +10,23 @@
 # include 'faker'
 
 50.times do
-  gen = ['Male', 'Female']
+  @gen = ['Male', 'Female']
   Person.create(
     name: Faker::Name.unique.name,
     age: Faker::Number.between(18,50),
     hair_color: Faker::Color.color_name,
     eye_color: Faker::Color.color_name,
-    gender: gen.sample,
+    gender: @gen.sample,
     alive: Faker::Boolean.boolean
+  )
+end
+
+
+50.times do
+  Child.create(
+    name: Faker::Name.unique.name,
+    age: Faker::Number.between(1,16),
+    gender: @gen.sample,
+    person_id: Faker::Number.between(1,50)
   )
 end
