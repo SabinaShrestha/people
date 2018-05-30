@@ -1,13 +1,34 @@
-<h1>People#show</h1>
-<p>Find me in app/views/people/show.html.erb</p>
+<h1 class="center-align">Profile</h1>
+<h3 class="center-align"><%= @person.name %></h3>
 
-<%= @person.name %>
-<%= @person.age %>
-<%= @person.hair_color %>
-<%= @person.eye_color %>
-<%= @person.gender %>
-<%= @person.alive %>
+<table>
+    <tr>
+      <th>Age</th>
+      <td><%= @person.age %></td>
+    </tr>
+    <tr>
+      <th>Hair Color</th>
+      <td><%= @person.hair_color %></td>
+    </tr>
+    <tr>
+      <th>Eye Color</th>
+      <td><%= @person.eye_color %></td>
+    </tr>
+    <tr>
+      <th>Gender</th>
+      <td><%= @person.gender %></td>
+    </tr>
+    <tr>
+      <th>Alive</th>
+      <td><%= @person.alive %></td>
+    </tr>
+</table>
 
-<%= link_to 'Back', people_path %>
-<%= link_to 'Edit', edit_person_path(@person) %>
-<%= link_to 'Delete', @person, method: :delete %>
+
+<br/>
+
+
+<%= link_to 'Back', people_path, {class: 'btn'} %>
+<%= link_to 'Edit', edit_person_path(@person), {class: 'btn'} %>
+<%= link_to 'Delete', @person, {method: :delete, class: 'btn'} %>
+<%= link_to 'Children', person_child_path(@person.id), {class: 'btn'} %>

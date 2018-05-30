@@ -1,2 +1,32 @@
-<h1>Children#show</h1>
-<p>Find me in app/views/children/show.html.erb</p>
+
+<div class="center-align">
+  <h1>Children</h1>
+  <% if @child.count == 0 %>
+    <h3>This Person does not have child.</h3>
+  <% else %>
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @child.each_with_index do |c,i| %>
+          <tr>
+            <td><%= i+1 %></td>
+            <td><%= c.name %></td>
+            <td><%= c.age %></td>
+            <td><%= c.gender %></td>
+            <td><%= link_to 'Edit', edit_person_child_path, {class: 'btn'} %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  <br/>
+  <%= link_to 'Back', person_path(@person), {class: 'btn'} %>
+<div>

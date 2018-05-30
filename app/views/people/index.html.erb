@@ -1,8 +1,23 @@
-<h1>List Of People</h1>
-<h3><%= link_to 'Add', new_person_path %></h3>
+<div class="center-align">
+  <h1>List Of People</h1>
+  <h3><%= link_to 'Add Person', new_person_path, {class: 'btn'}%></h3>
+</div>
 
-
-<% @people.each do |person| %>
-  <%= person.name %>
-  <%= link_to 'View', person_path(person) %>
-<% end %>
+<table class="striped">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @people.each_with_index do |person,i| %>
+      <tr>
+        <td><%= i+1 %></td>
+        <td><%= person.name %></td>
+        <td><%= link_to 'View', person_path(person), {class: 'btn'} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
