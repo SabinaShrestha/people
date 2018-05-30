@@ -11,6 +11,8 @@
           <th>Name</th>
           <th>Age</th>
           <th>Gender</th>
+          <th>Id</th>
+          <th></th>
           <th></th>
         </tr>
       </thead>
@@ -21,6 +23,7 @@
             <td><%= c.name %></td>
             <td><%= c.age %></td>
             <td><%= c.gender %></td>
+            <td><%= c.id %></td>
             <td><%= link_to 'Edit', edit_person_child_path, {class: 'btn'} %></td>
           </tr>
         <% end %>
@@ -28,5 +31,7 @@
     </table>
   <% end %>
   <br/>
-  <%= link_to 'Back', person_path(@person), {class: 'btn'} %>
+  <%= link_to 'Back', person_path, {class: 'btn'} %>
+  <%= link_to 'Add Child', new_person_child_path, {class: 'btn'} %>
+
 <div>

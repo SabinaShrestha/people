@@ -7,7 +7,9 @@
       <th>Name</th>
       <th>Age</th>
       <th>Gender</th>
+      <th>Child Id</th>
       <th>Parents</th>
+      <th>Parents Id</th>
     </tr>
   </thead>
   <tbody>
@@ -17,7 +19,9 @@
         <td><%= child.name %></td>
         <td><%= child.age %></td>
         <td><%= child.gender %></td>
+        <td><%= child.id %></td>
         <td><%= @person.find(" #{child.person_id}").name %></td>
+        <td><%= @person.find("#{child.person_id}").id %></td>
       </tr>
     <% end %>
   </tbody>

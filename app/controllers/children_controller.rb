@@ -1,7 +1,7 @@
 class ChildrenController < ApplicationController
   def index
     @person = Person.all
-    @children = Child.order(name: :ASC)
+    @children = Child.order(person_id: :ASC)
   end
 
   def show
@@ -10,6 +10,7 @@ class ChildrenController < ApplicationController
   end
 
   def new
+    @person = Person.find(params[:person_id])
     @child = Child.new
   end
 
@@ -23,11 +24,13 @@ class ChildrenController < ApplicationController
   end
 
   def edit
-    @child = Child.find(id)
+    @person = Person.find(params[:person_id])
+    @child = Child.find("#{params[:id]}")
+
   end
 
   def update
-    @child = Child.find(id)
+    @child = Child.find(params[:id])
     if @child.update(child_params)
       redirect_to person_children_path
     else
